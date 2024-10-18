@@ -5,12 +5,13 @@ import PantallaDesafio from './components/PantallaDesafio';
 
 function App() {
 
-  const [pantalla, setPantalla] = useState(<PantallaInicio />); 
-  //Se cambia la pantalla al hacer clic pero el boton no se va xd
+  const [pantalla, setPantalla] = useState(<><PantallaInicio />
+  <button onClick={() => setPantalla((pantalla) => pantalla = <PantallaDesafio />)}>EMPEZAR</button></>); 
+  //Se cambia la pantalla al hacer clic
   return (
     <>
-      <div>{pantalla}
-      <button onClick={() => setPantalla((pantalla)=> pantalla=<PantallaDesafio />)}>EMPEZAR</button>
+      <div>
+      {pantalla}
       </div>
     </>
   )
