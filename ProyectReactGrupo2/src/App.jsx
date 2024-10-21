@@ -1,7 +1,7 @@
-import { useState } from 'react'
-import './App.css'
+import { useState } from 'react';
 import PantallaInicio from './components/PantallaInicio';
 import PantallaDesafio from './components/PantallaDesafio';
+import './styles/App.css';
 
 function App() {
 
