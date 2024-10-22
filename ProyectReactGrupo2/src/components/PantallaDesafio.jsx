@@ -1,5 +1,7 @@
 import React from 'react';
 import { useState } from "react";
+import PantallaDerrota from './PantallaDerrota'
+import PantallaLogro from './PantallaLogro';
 
 function PantallaDesafio(){
 
@@ -22,10 +24,10 @@ function PantallaDesafio(){
 	  //// comprueba la cantidad de ejercicios pendientes y la puntuación ///////
 	  
 	if (ejercicios <= 0 &&   puntaje >=3){
-		setMensaje('Ganó'); // Para ser remplazada por PantallaLogro
+		setMensaje(PantallaLogro); // Para ser remplazada por PantallaLogro
 	}
 	else if (ejercicios <= 0 &&   puntaje <3){
-		setMensaje('Perdió'); // Para ser remplazada por PantallaDerrota
+		setMensaje(PantallaDerrota); // Para ser remplazada por PantallaDerrota
 		
 	}	else {
 		
@@ -60,7 +62,13 @@ function PantallaDesafio(){
     if(parseInt(answer) === correct){
       setResult('Correctoo!!');
       setPuntaje (puntaje +1); // aumenta puntaje
-      setEjercicios (ejercicios -1) // disminuye la cantidad de ejercicios pendientes 
+      if (puntaje>4){
+        setPuntaje(5);
+      }
+      setEjercicios (ejercicios -1)
+      if (ejercicios<1){
+        setEjercicios(0);
+      } // disminuye la cantidad de ejercicios pendientes 
       
     }else {
       setResult('Incorrecto!!');
